@@ -455,7 +455,7 @@ class WebApp {
     // se $type == null restituisco tutti
   	public function getFiatRate($type=null){
         $url = 'https://www.bitstamp.net/api/v2/ticker/btceur';
-        $result = json_decode(BTCPayWebRequest::request($url,array(),'GET'),true);
+        $result = json_decode(BTCPaywebRequest::getUrl($url,array(),'GET'),true);
 
         switch(strtolower($type)){
             // case 'eth':
@@ -845,7 +845,7 @@ class WebApp {
                 return false;
             }
 
-            if( webRequest::url_test( $node ) ) {
+            if( webRequest::checkUrl( $node ) ) {
                 $isdown = false;
             }
         } while ($isdown);
