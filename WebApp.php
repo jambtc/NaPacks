@@ -1,5 +1,6 @@
 <?php
 Yii::import('libs.webRequest.webRequest');
+Yii::import('libs.crypt.crypt');
 
 /**
  * @author Sergio Casizzone
@@ -55,8 +56,8 @@ class WebApp {
   /**
  	 * @return data e time su 2 righe
  	 * Per le transazioni token
- 	 */
- 	 public function dateLN($timestamp,$id=null){
+ 	*/
+ 	public function dateLN($timestamp,$id=null){
  		$date = date("d M `y",$timestamp);
  		$time = date("H:i",$timestamp);
  		$return = '';
@@ -451,13 +452,12 @@ class WebApp {
 
 
 
-
     // Questa funzione recupera il FIAT RATE in EURO
-    // per il token non passo nulla e il rapporto è 1 <=> 1
+    // per il token non passo nulla e il rapporto è 1 === 1
     // se $type == null restituisco tutti
   	public function getFiatRate($type=null){
         $url = 'https://www.bitstamp.net/api/v2/ticker/btceur';
-        $result = json_decode(BTCPaywebRequest::getUrl($url,array(),'GET'),true);
+        $result = json_decode(webRequest::getUrl($url,$url,[],"GET"),true);
 
         switch(strtolower($type)){
             // case 'eth':
