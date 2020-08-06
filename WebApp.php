@@ -1,4 +1,6 @@
 <?php
+Yii::import('libs.webRequest.webRequest');
+
 /**
  * @author Sergio Casizzone
  * @class Classe che raccoglie funzioni in comune per i diversi controller
@@ -872,6 +874,7 @@ class WebApp {
     * curl -L "https://datahub.io/core/country-list/r/0.json"
     */
     public function CountryDataset(){
+
       $url = 'https://datahub.io/core/country-list/r/0.json';
       $json = webRequest::getUrl($url,$url,[],"GET");
 
