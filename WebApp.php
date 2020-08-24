@@ -501,33 +501,33 @@ class WebApp {
 	 public function walletStatus($value){
 		 switch (strtolower($value)){
   			case 'complete':
-  				return '<span class="btn btn-outline-success"style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+  				return '<span class="btn-status btn btn-outline-success"style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
   			case 'failed':
   			case 'invalid':
-  				return '<span class="btn btn-outline-danger" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+  				return '<span class="btn-status btn btn-outline-danger" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
  			case 'canceled':
- 				return '<span class="btn btn-outline-danger" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+ 				return '<span class="btn-status btn btn-outline-danger" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
   			case 'sending':
   			case 'new':
-  				return '<span class="btn btn-secondary" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+  				return '<span class="btn-status btn btn-secondary" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
   			case 'sent':
-  				return '<span class="btn btn-outline-success" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+  				return '<span class="btn-status btn btn-outline-success" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
   			case 'expired':
-  				return '<span class="btn btn-outline-warning" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+  				return '<span class="btn-status btn btn-outline-warning" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
   			case 'paidpartial':
-  				return '<span class="btn btn-outline-warning" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+  				return '<span class="btn-status btn btn-outline-warning" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
   			case 'paidover':
-  				return '<span class="btn btn-outline-primary" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+  				return '<span class="btn-status btn btn-outline-primary" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
   			case 'paid'	:
-  				return '<span class="btn btn-outline-success" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+  				return '<span class="btn-status btn btn-outline-success" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
   			case 'confirmed'	:
-  				return '<span class="btn btn-outline-success" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+  				return '<span class="btn-status btn btn-outline-success" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
 			case 'followed'	:
-				return '<span class="btn btn-outline-success" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+				return '<span class="btn-status btn btn-outline-success" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
 			case 'unfollowed'	:
-				return '<span class="btn btn-outline-warning" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+				return '<span class="btn-status btn btn-outline-warning" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
 			case 'help'	:
-	 			return '<span class="btn btn-outline-success" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+	 			return '<span class="btn-status btn btn-outline-success" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
 
 			default:
   				return $value;
