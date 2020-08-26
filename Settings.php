@@ -77,6 +77,9 @@ define('SHOPFIELDS', [
 
 class Settings
 {
+  /**
+   * Questa funzione carica le impostazioni della webapp
+  */
   public function load(){
       $array = array();
       $dataProvider=new CActiveDataProvider('SettingsWebapp');
@@ -87,6 +90,9 @@ class Settings
       }
       if (!(isset($array['blockchainAsset'])) || $array['blockchainAsset'] == '' || $array['blockchainAsset'] == '0')
           $array['blockchainAsset'] = "{'BTC':'BTC'}";
+
+      if (!(isset($array['poa_decimals'])) || $array['poa_decimals'] == '')
+          $array['poa_decimals'] = 2;
 
       $settings = (object) $array;
       // echo "<pre>".print_r($settings,true)."</pre>";

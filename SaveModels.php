@@ -9,24 +9,22 @@ class SaveModels
    *
    * @return: restituisce l'object degli attributes della transazione
    */
-public function saveTransaction($array,$action){
-      #echo "<pre>$action: ".print_r($array,true).'</pre>';
-  if ($action == 'new'){
-    $transaction = new Transactions;
-          $transaction->attributes = $array;
+  public function saveTransaction($array,$action){
+    #echo "<pre>$action: ".print_r($array,true).'</pre>';
+    if ($action == 'new'){
+      $transaction = new Transactions;
+      $transaction->attributes = $array;
       $transaction->insert();
-  }else{
-    $transaction = Transactions::model()->findByPk($array['id_transaction']);
-          $transaction->attributes = $array;
+    }else{
+      $transaction = Transactions::model()->findByPk($array['id_transaction']);
+      $transaction->attributes = $array;
       $transaction->update();
+    }
+    #echo '<pre>'.print_r($transaction,true).'</pre>';
+    #exit;
+    $return  = (object) $transaction->attributes;
+    return $return;
   }
-
-
-  #echo '<pre>'.print_r($transaction,true).'</pre>';
-  #exit;
-  $return  = (object) $transaction->attributes;
-  return $return;
-}
 
 /**
  * Salva le info delle transazioni sul DB
@@ -261,7 +259,7 @@ public function savePosData($idTransaction, $posData){
         }
 
         if ($die){
-            echo CJSON::encode(["error"=>$description]);
+          echo CJSON::encode(["error"=>$description]);
         	die();
         }
 
