@@ -1,7 +1,12 @@
 <?php
 class Logo
 {
-  public function footer(){
+
+  /*
+  * In questa funzione che stampa a video il footer, la variabile
+  * $color deve essere inserita nel formato: #ffdd1a
+  */
+  public function footer($color=NULL){
       $versionfilename = Yii::app()->basePath."/../version.txt";
       if(file_exists($versionfilename)){
           $version = file_get_contents($versionfilename);
@@ -14,7 +19,10 @@ class Logo
       $footer .= '<div class="row">&nbsp;</div>';
       $footer .= '<center>';
       $footer .= '<div class="copyright">';
-      $footer .= '<p>';
+      if (!($color))
+        $footer .= '<p>';
+      else
+        $footer .= '<p style="color:'.$color.';">';
       $footer .= 'Made with ❤️ by ';
       $footer .= '<a href="' . Yii::app()->params['website'] . '" target="_blank">' . Yii::app()->params['adminName'] . '</a>';
       $footer .= '<br>';
