@@ -78,7 +78,11 @@ define('SHOPFIELDS', [
 define('WEBAPPFIELDS',   [
        'poa_expiration',
        'quota_iscrizione_socio',
-       'quota_iscrizione_socioGiuridico'
+       'quota_iscrizione_socioGiuridico',
+       'gdpr_address',
+       'gdpr_cap',
+       'gdpr_telefono',
+       'gdpr_fax'
 ]);
 
 
@@ -103,6 +107,9 @@ class Settings
 
       if (!(isset($array['id_exchange'])) || $array['id_exchange'] == '')
         $array['id_exchange'] = 1;
+
+      if (!(isset($array['gdpr_city'])) || $array['gdpr_city'] == '')
+        $array['gdpr_city'] = 1;
 
       foreach (WEBAPPFIELDS as $key) {
         if (!array_key_exists($key, $array))
