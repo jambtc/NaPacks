@@ -75,6 +75,13 @@ define('SHOPFIELDS', [
 ]);
 
 
+define('WEBAPPFIELDS',   [
+       'poa_expiration',
+       'quota_iscrizione_socio',
+       'quota_iscrizione_socioGiuridico'
+]);
+
+
 class Settings
 {
   /**
@@ -95,7 +102,12 @@ class Settings
           $array['poa_decimals'] = 2;
 
       if (!(isset($array['id_exchange'])) || $array['id_exchange'] == '')
-        $array['id_exchange'] = 0;    
+        $array['id_exchange'] = 1;
+
+      foreach (WEBAPPFIELDS as $key) {
+        if (!array_key_exists($key, $array))
+          $array[$key] = '';
+      }
 
       $settings = (object) $array;
       // echo "<pre>".print_r($settings,true)."</pre>";
