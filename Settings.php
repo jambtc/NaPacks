@@ -94,6 +94,9 @@ class Settings
       if (!(isset($array['poa_decimals'])) || $array['poa_decimals'] == '')
           $array['poa_decimals'] = 2;
 
+      if (!(isset($array['id_exchange'])) || $array['id_exchange'] == '')
+        $array['id_exchange'] = 0;    
+
       $settings = (object) $array;
       // echo "<pre>".print_r($settings,true)."</pre>";
       // exit;
