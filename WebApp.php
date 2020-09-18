@@ -493,46 +493,123 @@ class WebApp {
 		return $listaCoin;
 	}
 
-    /**
-     *
-     * @return walletStatus
-	 * restituisce un valore in base al valore $status dell'invoice (sent, complete,expired, ecc...)
-     */
-	 public function walletStatus($value){
-		 switch (strtolower($value)){
-  			case 'complete':
-  				return '<span class="btn-status btn btn-outline-success"style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
-  			case 'failed':
-  			case 'invalid':
-  				return '<span class="btn-status btn btn-outline-danger" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
- 			case 'canceled':
- 				return '<span class="btn-status btn btn-outline-danger" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
-  			case 'sending':
-  			case 'new':
-  				return '<span class="btn-status btn btn-secondary" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
-  			case 'sent':
-  				return '<span class="btn-status btn btn-outline-success" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
-  			case 'expired':
-  				return '<span class="btn-status btn btn-outline-warning" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
-  			case 'paidpartial':
-  				return '<span class="btn-status btn btn-outline-warning" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
-  			case 'paidover':
-  				return '<span class="btn-status btn btn-outline-primary" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
-  			case 'paid'	:
-  				return '<span class="btn-status btn btn-outline-success" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
-  			case 'confirmed'	:
-  				return '<span class="btn-status btn btn-outline-success" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
-			case 'followed'	:
-				return '<span class="btn-status btn btn-outline-success" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
-			case 'unfollowed'	:
-				return '<span class="btn-status btn btn-outline-warning" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
-			case 'help'	:
-	 			return '<span class="btn-status btn btn-outline-success" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
 
-			default:
-  				return $value;
-  		}
+  /**
+   *
+   * @return walletStatus
+	 * restituisce un valore in base al valore $status dell'invoice (sent, complete,expired, ecc...)
+  */
+	public function walletStatus($value){
+    switch (strtolower($value)){
+			case 'complete':
+				return '<span class="btn-status btn btn-outline-success"style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+      case 'failed':
+			case 'invalid':
+				return '<span class="btn-status btn btn-outline-danger" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+      case 'canceled':
+        return '<span class="btn-status btn btn-outline-danger" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+      case 'sending':
+	    case 'new':
+        return '<span class="btn-status btn btn-secondary" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+      case 'sent':
+        return '<span class="btn-status btn btn-outline-success" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+      case 'expired':
+        return '<span class="btn-status btn btn-outline-warning" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+      case 'paidpartial':
+        return '<span class="btn-status btn btn-outline-warning" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+      case 'paidover':
+        return '<span class="btn-status btn btn-outline-primary" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+      case 'paid'	:
+        return '<span class="btn-status btn btn-outline-success" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+      case 'confirmed'	:
+        return '<span class="btn-status btn btn-outline-success" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+      case 'followed'	:
+        return '<span class="btn-status btn btn-outline-success" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+      case 'unfollowed'	:
+        return '<span class="btn-status btn btn-outline-warning" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+      case 'help'	:
+        return '<span class="btn-status btn btn-outline-success" style="padding: 1px 5px 1px 5px;">'.ucfirst(self::translateMsg($value)).'</span>';
+
+      default:
+      return $value;
+		}
 	}
+  /**
+   *
+   * @return walletIconStatus
+   * restituisce un'immagine in base al valore $status dell'invoice (sent, complete,expired, ecc...)
+  */
+  public function walletIconStatus($value){
+    switch (strtolower($value)){
+      case 'complete':
+      case 'sent':
+      case 'paid':
+      case 'confirmed':
+      case 'followed':
+        return '<span class="btn-status btn btn-success" style="padding: 1px 7px 1px 7px;"><span>&#10003;</span></span>';
+
+      case 'failed':
+      case 'invalid':
+      case 'canceled':
+      case 'unfollowed':
+        return '<span class="btn-status btn btn-danger" style="padding: 1px 7px 1px 7px;"><span>X</span></span>';
+
+      case 'sending':
+      case 'new':
+        return '<span class="btn-status btn "><div class="loader"></div></span>';
+
+      case 'expired':
+      case 'paidpartial':
+        return '<span class="btn-status" style="padding: 1px 7px 1px 7px;"><span>&#9888;</span></span>';
+
+      case 'paidover':
+        return '<span class="btn-status btn btn-primary" style="padding: 1px 7px 1px 7px;"><span>&#10003;</span></span>';
+
+      case 'help'	:
+        return '<span class="btn-status btn btn-success" style="padding: 1px 7px 1px 7px;"><span>&quest;</span></span>';
+
+      default:
+        return $value;
+    }
+  }
+  /**
+   *
+   * @return walletIconStatus
+   * restituisce un'immagine in base al valore $status dell'invoice (sent, complete,expired, ecc...)
+  */
+  public function walletIconOnlyStatus($value){
+    switch (strtolower($value)){
+      case 'complete':
+      case 'sent':
+      case 'paid':
+      case 'confirmed':
+      case 'followed':
+        return '&#10003;';
+
+      case 'failed':
+      case 'invalid':
+      case 'canceled':
+      case 'unfollowed':
+        return 'X';
+
+      case 'sending':
+      case 'new':
+        return '<div class="loader"></div>';
+
+      case 'expired':
+      case 'paidpartial':
+        return '&#9888;';
+
+      case 'paidover':
+        return '&#10003;';
+
+      case 'help'	:
+        return '&quest;';
+
+      default:
+        return $value;
+    }
+  }
 
     /**
      *
