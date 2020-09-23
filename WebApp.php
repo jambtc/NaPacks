@@ -65,7 +65,7 @@ class WebApp {
  			$return = '<p class="mobile-not-show" style="margin-bottom:0px;">'.substr(crypt::encrypt($id),0,20).'...</p>';
  		}
     $return .= '<div class="desktop-is-hidden"><div style="font-size:0.85em;">'.$date.' - '.$time.'</div></div>';
-    $return .= '<div class="mobile-is-hidden"><div style="font-size:0.85em;">'.$date.'</div><div style="font-size:0.75em; text-align:center;" >'.$time.'</div></div>';
+    $return .= '<div class="mobile-is-hidden"><div style="font-size:0.80em;">'.$date.'</div><div style="font-size:0.75em; text-align:center;" >'.$time.'</div></div>';
  		return $return;
  	}
 
