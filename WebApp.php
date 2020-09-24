@@ -956,12 +956,13 @@ class WebApp {
       $json = webRequest::getUrl($url,$url,[],"GET");
 
       $array = CJSON::decode($json);
-      // echo "<pre>".print_r($json,true)."</pre>";
+      // echo "<pre>".print_r($array,true)."</pre>";
       // exit;
 
-      if (isset($array))
-        foreach ($array as $field => $desc)
-          $country[$desc['Code']] = $desc['Name'];
+      if (isset($array) && (!isset($array['error']))) {
+          foreach ($array as $field => $desc)
+            $country[$desc['Code']] = $desc['Name'];
+      }
       else
         $country = ['IT'=>'Italy'];
 
